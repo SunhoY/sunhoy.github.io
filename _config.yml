@@ -93,15 +93,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  name             : "Sunho Yang"
+  avatar           : "https://avatars0.githubusercontent.com/u/13836414?s=400&u=63a529c0bc1e45326c8e9fe17e5066b336688cc6&v=4"
+  bio              : "Software developer, Naver Search & Clova"
+  location         : "Bundang, Korea"
+  email            : "zillaci@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      url: mailto:zillaci@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
