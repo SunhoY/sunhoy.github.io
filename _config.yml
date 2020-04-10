@@ -100,7 +100,7 @@ author:
   email            : "zillaci@gmail.com"
   links:
     - label: "LinkedIn"
-      icon: "fas fa-fw fa-link"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/sunho-yang-251936b9/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
