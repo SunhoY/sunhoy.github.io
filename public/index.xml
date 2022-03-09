@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>http://example.org/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Mar 2022 21:25:54 +0900</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring REST Docs 찍먹하기</title>
+      <link>http://example.org/posts/spring-restdocs/</link>
+      <pubDate>Tue, 08 Mar 2022 21:25:54 +0900</pubDate>
+      
+      <guid>http://example.org/posts/spring-restdocs/</guid>
+      
+        <description>Spring REST Docs 찍먹하기 Spring Webflux + Kotlin + Gradle(Kotlin DSL) + JUnit 5
+Spring REST Docs의 레퍼런스 가이드는 여기.
+이제까지 문서화는 Swagger 라고 알고 있었는데 프로덕션 코드에 어노테이션을 덕지덕지 붙이는게 싫어서 검색을 좀 해보았습니다. Spring REST Docs라는 것을 찾았는데, 문서화를 하기 위해서 테스트를 작성해야한다는 컨셉이 마음에 들었습니다. 적용하는 과정에서 은근히 삽질도 많이 하였기에 기록용으로 남겨봅니다.
+포스트를 작성하면서 참고한 샘플
+시작하기 Spring REST Docs는 아래의 요구사항을 가집니다.
+ Java 8 Spring Framework 5(5.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

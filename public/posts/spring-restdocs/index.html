@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  class="html"
+><head>
+  <title>
+    
+      Sunho Yang
+        |
+        Spring REST Docs 찍먹하기
+
+
+      
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      Software Engineering
+
+
+    "
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.887981ea8ee463aed275e813b62ca5ceba5547658ae54bc026235d498d7503d6.css"
+      integrity="sha256-iHmB6o7kY67SdegTtiylzrpVR2WK5UvAJiNdSY11A9Y="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css"
+    integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css"
+    integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css"
+    integrity="sha256-bVheeNKMzhIA05&#43;xM8ku2D3wFzjach0PSPturGLSTgQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css"
+    integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="http://example.org/posts/spring-restdocs/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
+    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js"
+      integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring REST Docs 찍먹하기"/>
+<meta name="twitter:description" content="Spring REST Docs 찍먹하기 Spring Webflux &#43; Kotlin &#43; Gradle(Kotlin DSL) &#43; JUnit 5
+Spring REST Docs의 레퍼런스 가이드는 여기.
+이제까지 문서화는 Swagger 라고 알고 있었는데 프로덕션 코드에 어노테이션을 덕지덕지 붙이는게 싫어서 검색을 좀 해보았습니다. Spring REST Docs라는 것을 찾았는데, 문서화를 하기 위해서 테스트를 작성해야한다는 컨셉이 마음에 들었습니다. 적용하는 과정에서 은근히 삽질도 많이 하였기에 기록용으로 남겨봅니다.
+포스트를 작성하면서 참고한 샘플
+시작하기 Spring REST Docs는 아래의 요구사항을 가집니다.
+ Java 8 Spring Framework 5(5."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "posts",
+        "name": "Spring REST Docs 찍먹하기",
+        "headline": "Spring REST Docs 찍먹하기",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Spring REST Docs 찍먹하기 Spring Webflux \u002b Kotlin \u002b Gradle(Kotlin DSL) \u002b JUnit 5\nSpring REST Docs의 레퍼런스 가이드는 여기.\n이제까지 문서화는 Swagger 라고 알고 있었는데 프로덕션 코드에 어노테이션을 덕지덕지 붙이는게 싫어서 검색을 좀 해보았습니다. Spring REST Docs라는 것을 찾았는데, 문서화를 하기 위해서 테스트를 작성해야한다는 컨셉이 마음에 들었습니다. 적용하는 과정에서 은근히 삽질도 많이 하였기에 기록용으로 남겨봅니다.\n포스트를 작성하면서 참고한 샘플\n시작하기 Spring REST Docs는 아래의 요구사항을 가집니다.\n Java 8 Spring Framework 5(5.
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/spring-restdocs\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Sunho Yang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Sunho Yang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Sunho Yang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Sunho Yang"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-03-08T21:25:54.00Z",
+        "datePublished": "2022-03-08T21:25:54.00Z",
+        "dateModified": "2022-03-08T21:25:54.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Sunho Yang",
+            "url": "http://example.org/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/example.org\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "http:\/\/example.org\/posts\/spring-restdocs\/",
+        "wordCount" : "718",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body
+    
+      class="body theme--light"
+
+    
+  >
+    <div class="wrapper">
+      <aside class="wrapper__sidebar"><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/profile.png"
+        alt="profile picture"
+      />
+      <h1 class="sidebar__introduction-title">
+        <a href="/">기린같은 풀스택</a>
+      </h1>
+      <div class="sidebar__introduction-description">
+        <p>Software Engineering</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Sunho Yang
+        2022
+
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
+    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main class="wrapper__main">
+        <header class="header"><div
+  class="
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    
+    <div class="post__content">
+      <h1>Spring REST Docs 찍먹하기</h1>
+      <h1 id="spring-rest-docs-찍먹하기">Spring REST Docs 찍먹하기</h1>
+<p>Spring Webflux + Kotlin + Gradle(Kotlin DSL) + JUnit 5</p>
+<p>Spring REST Docs의 레퍼런스 가이드는 <a href="https://docs.spring.io/spring-restdocs/docs/current/reference/html5/">여기</a>.</p>
+<p>이제까지 문서화는 Swagger 라고 알고 있었는데 프로덕션 코드에 어노테이션을 덕지덕지 붙이는게 싫어서 검색을 좀 해보았습니다. Spring REST Docs라는 것을 찾았는데, 문서화를 하기 위해서 테스트를 작성해야한다는 컨셉이 마음에 들었습니다. 적용하는 과정에서 은근히 삽질도 많이 하였기에 기록용으로 남겨봅니다.</p>
+<p>포스트를 작성하면서 참고한 <a href="https://github.com/spring-projects/spring-restdocs/tree/v2.0.6.RELEASE/samples/web-test-client">샘플</a></p>
+<h3 id="시작하기">시작하기</h3>
+<p>Spring REST Docs는 아래의 요구사항을 가집니다.</p>
+<ul>
+<li>Java 8</li>
+<li>Spring Framework 5(5.0.2 or later)</li>
+</ul>
+<h3 id="빌드-설정">빌드 설정</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">plugins {
+  id(<span style="color:#e6db74">&#34;org.asciidoctor.jvm.convert&#34;</span>) version <span style="color:#e6db74">&#34;3.3.2&#34;</span> <span style="color:#75715e">// 1.
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">val</span> asciidoctorExt: Configuration <span style="color:#66d9ef">by</span> configurations.creating <span style="color:#75715e">// 2.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> restDocVersion <span style="color:#66d9ef">by</span> extra(<span style="color:#e6db74">&#34;2.0.6.RELEASE&#34;</span>)
+
+dependencies {
+  <span style="color:#f92672">..</span>.
+
+  asciidoctorExt(<span style="color:#e6db74">&#34;org.springframework.restdocs:spring-restdocs-asciidoctor:</span><span style="color:#e6db74">${restDocVersion}</span><span style="color:#e6db74">&#34;</span>) <span style="color:#75715e">// 3.
+</span><span style="color:#75715e"></span>  testImplementation(<span style="color:#e6db74">&#34;org.springframework.restdocs:spring-restdocs-webtestclient:</span><span style="color:#e6db74">${restDocVersion}</span><span style="color:#e6db74">&#34;</span>) <span style="color:#75715e">// 4.
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">val</span> snippetsDir <span style="color:#66d9ef">by</span> extra(<span style="color:#66d9ef">file</span>(<span style="color:#e6db74">&#34;build/generated-snippets&#34;</span>)) <span style="color:#75715e">// 5.
+</span><span style="color:#75715e"></span>
+tasks.test {
+  outputs.dir(snippetsDir) <span style="color:#75715e">// 6.
+</span><span style="color:#75715e"></span>}
+
+tasks.asciidoctor { <span style="color:#75715e">// 7.
+</span><span style="color:#75715e"></span>  inputs.dir(snippetsDir) <span style="color:#75715e">// 8.
+</span><span style="color:#75715e"></span>  configurations(<span style="color:#e6db74">&#34;asciidoctorExt&#34;</span>) <span style="color:#75715e">// 9.
+</span><span style="color:#75715e"></span>  dependsOn(tasks.test) <span style="color:#75715e">// 10.
+</span><span style="color:#75715e"></span>}
+</code></pre></div><ol>
+<li>asciidoctor 플러그인을 적용합니다. 현 시점(2022/3/8) 3.3.2 버전이 최신입니다.</li>
+<li>asciidoctorExt 설정을 선언합니다. Kotlin DSL 에서는 Groovy DSL과 선언하는 방법이 다릅니다. <a href="https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html#custom_configurations_and_dependencies">참고</a></li>
+<li>asciidoctorExt 설정으로 spring-restdocs-asciidoctor 의존성을 추가합니다. .adoc 형태의 스니펫을 만들어주는 역할을 합니다. 추후에 다룰 operation 매크로 사용을 가능하게 합니다.</li>
+<li>spring-restdoc-webtestclient 의존성을 추가합니다. 저는 webflux를 쓰기 때문에 이 것을 사용했고 mvc, restassured 용도 따로 있었습니다.</li>
+<li>스니펫이 생성될 디렉토리를 정의합니다. Kotlin DSL에서는 위와 같이 정의합니다. <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html#sec:extra_properties">참고</a></li>
+<li>test 작업의 output에 스니펫이 저장될 장소를 지정합니다.</li>
+<li>asciidocker 작업을 설정합니다. 이 작업이 .adoc 파일을 .html로 변환하는 과정도 해줍니다.</li>
+<li>스니펫 디렉토리를 input 디렉토리로 지정합니다.</li>
+<li>asciidocterExt 설정을 추가합니다.</li>
+<li>test 작업의 의존성을 추가해서 해당 작업 전에 test가 수행되도록 합니다.</li>
+</ol>
+<h3 id="패키징">패키징</h3>
+<p>이 부분이 레퍼런스 가이드에서 이해하기 어려웠던 부분인데, 스프링 부트의 정적자원 서빙을 이용하여 문서를 제공하는 방법입니다. <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-spring-mvc-static-content">참고</a></p>
+<p>스프링 부트는 기본적으로 /static, /public, /resources, /META_INF/resources 위치를 정적자원으로 서빙합니다. 즉 서버가 localhost:8080에 떠있고 /static/docs/index.html 파일이 존재한다면 <a href="http://localhost:8080/docs/index.html">localhost:8080/docs/index.html</a> 로 해당 파일을 접근할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">tasks.bootJar {
+  dependsOn(tasks.asciidoctor)
+  from(tasks.asciidoctor.<span style="color:#66d9ef">get</span>().outputDir) {
+    into(<span style="color:#e6db74">&#34;static/docs&#34;</span>)
+  }
+}
+</code></pre></div><p>asciidoctor 작업으로 생성된  html 파일을 static/docs 로 복사해주면 위에 언급한 주소에서 접근 가능해집니다.</p>
+<h3 id="문서-스니펫-작성">문서 스니펫 작성</h3>
+<p>저는 JUnit5 로 테스트를 작성했습니다. 참고로 Webflux에서 컨트롤러를 테스트할 때는 @WebFluxTest 어노테이션으로 WebTestClient를 주입받을 수 있습니다. 하지만 AutoConfig를 사용하기 때문에 SpringRESTDocs의 설정을 추가할 수 없습니다. 그래서 다른 방법으로 테스트를 수행했습니다.</p>
+<p>먼저 setup 메소드를 통해 WebTestClient 설정을 해줍니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@ExtendWith</span>(RestDocumentationExtension<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorldControllerSpec</span> {
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> webTestClient: WebTestClient
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> helloWorldService = mock(HelloWorldService<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java) <span style="color:#75715e">// 1.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> subject = HelloWorldController(helloWorldService) <span style="color:#75715e">// 2.
+</span><span style="color:#75715e"></span>
+  <span style="color:#a6e22e">@BeforeEach</span>
+  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setUp</span>(restDocumentation: RestDocumentationContextProvider) { <span style="color:#75715e">// 3.
+</span><span style="color:#75715e"></span>    WebTestClient.bindToController(subject)  <span style="color:#75715e">// 4.
+</span><span style="color:#75715e"></span>      .configureClient()
+      .filter(documentationConfiguration(restDocumentation)) <span style="color:#75715e">// 5.
+</span><span style="color:#75715e"></span>      .entityExchangeResultConsumer(document(<span style="color:#e6db74">&#34;{class-name}/{method-name}&#34;</span>)) <span style="color:#75715e">// 6.
+</span><span style="color:#75715e"></span>      .build()
+  }  
+}
+</code></pre></div><ol>
+<li>HelloWorldController는 @Service 어노테이션으로 HelloWorldService를 주입받습니다. 하지만 우리는 단위테스트를 작성하는 것이 목적이므로 서비스를 모킹해줍니다.</li>
+<li>테스트에 사용할 컨트롤러를 생성합니다.</li>
+<li>RestDocumentationExtension을 확장했기 때문에 setUp메서드에 restDocumentation 을 주입받을 수 있습니다.</li>
+<li>WebTestClient.bindToController 스태틱 메서드를 통해 해당 컨트롤러만 테스트할 수 있도록 설정합니다.</li>
+<li>이 부분이 documentation을 가능하게 해줍니다.</li>
+<li>레퍼런스 가이드에서는 뒷 부분에 나오는 내용이지만 위와 같이 설정해주면 {outDir}/{클래스명}/{메소드명} 의 위치에 .adoc 파일들을 생성해줍니다.</li>
+</ol>
+<h3 id="restful-서비스-호출">RESTFul 서비스 호출</h3>
+<p>이제 테스트를 작성할 차례입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">postHelloWorld</span>() {
+  <span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(helloWorldService.createHelloWorld(testHelloWorld))
+      .thenReturn(Mono.just(testHelloWorld))
+
+  webTestClient.post().uri(<span style="color:#e6db74">&#34;/v1/hello-world&#34;</span>)
+    .contentType(MediaType.APPLICATION_JSON)
+    .accept(MediaType.APPLICATION_JSON)
+    .bodyValue(testHelloWorld)
+    .exchange()
+    .expectStatus().isCreated
+    .expectBody&lt;HelloWorld&gt;().isEqualTo(testHelloWorld)
+<span style="color:#75715e">//  .consumeWith(document(&#34;index&#34;) // 1.
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>여느 테스트와 다르지 않습니다. 다만, 1.에서 주석처리한 이유는 위에서 해당 설정을 class-name/method-name으로 해주었기 때문입니다. 문서 스니펫 작성 부분에서 6. 부분을 없애고 여기의 1.을 주석 해제하면 build/generated-snippets/index 위치에 .adoc 파일들이 생성됩니다.</p>
+<h3 id="스니펫-사용하기">스니펫 사용하기</h3>
+<p>이제 작성된 스니펫을 사용할 차례입니다. 스니펫을 사용하기 위해서는 Gradle의 경우 src/docs/asciidoc 의 위치에 .adoc 파일을 생성해야 합니다. 파일명은 마음대로 지어도 되고 지은 이름으로 .html 파일이 생성됩니다. 저는 편의상 index.adoc으로 짓겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// src/main/asciidoc/index.adoc
+</span><span style="color:#75715e"></span>= HelloWorld API Document
+:doctype: book
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: <span style="color:#ae81ff">2</span>
+:sectlinks:
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[[HelloWorld]</span>]
+<span style="color:#f92672">==</span> POST HelloWorld
+operation<span style="color:#f92672">::</span>hello-world-controller-spec/post-hello-world[snippets=<span style="color:#960050;background-color:#1e0010">&#39;</span>curl-request,http-request,http-response,request-body,response-body<span style="color:#960050;background-color:#1e0010">&#39;</span>]
+</code></pre></div><p>레퍼런스 가이드에는 asciidoctor 작업으로 생성된 html은 build/asciidoc/html5/ 위치에 생성된다고 되어있으나 제가 해보았을땐 html5 밑이 아닌 build/asciidoc 밑에 바로 생성되었습니다.</p>
+<p>include 매크로를 통해 하나씩 가져와도 상관없지만 operation 매크로를 통해 원하는 것 만 더 손쉽게 가져올 수 있습니다.</p>
+<h3 id="문서-생성">문서 생성</h3>
+<p>이제 모든 준비가 끝났으니 문서를 생성할 차례입니다.</p>
+<p>기본적으로 의존성을 엮어 놓았기 때문에 bootJar 작업으로 문서를 생성할 수 있으나, 각 작업이 하는 일을 나눠보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./gradlew clean test
+</code></pre></div><p>위의 명령어로 테스트를 수행하면,</p>
+<p>build/generated-snippets/hello-world-controller-spec/post-hello-world 의 위치에 아래의 파일들이 생성됩니다.</p>
+<p>curl-request.adoc
+http-request.adoc
+http-response.adoc
+httpie-request.adoc
+request-body.adoc
+response-body.adoc</p>
+<p>이제 .adoc 파일을 .html 파일로 변경할 차례입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./gradlew asciidoctor
+</code></pre></div><p>asciidoctor 작업을 실행하면 test가 수행되는 것을 알 수 있습니다. 왜냐하면 의존성을 엮어 놓았기 때문입니다. 여기서는 각 단계에서 생성되는 산출물을 파악하기 위해 굳이 나눠서 실행했습니다.</p>
+<p>build/docs/asciidoc 의 위치에 index.html 파일이 생성되었습니다.</p>
+<p>이제 jar 파일을 만들어보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./gradlew bootJar
+</code></pre></div><p>이 명령어를 수행하면, test, asciidoctor 작업이 다시 수행되는 것을 알 수 있습니다. CI 단계에서는 bootJar만 수행해도 충분할 것입니다. 이제 앱을 실행하고 문서가 잘 나오는지 확인합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar ./build/lib/xxx.jar
+</code></pre></div><p>이제 <a href="http://localhost:8080/docs/index.html">localhost:8080/docs/index.html</a> 로 접근하여 문서가 잘 나오는지 확인합니다.</p>
+<p>그 외에 문서를 더 풍부하게 만드는 방법들이 레퍼런스 가이드에 소개되어 있습니다. <a href="https://docs.spring.io/spring-restdocs/docs/current/reference/html5/#documenting-your-api">참고</a></p>
+<p>전 찍먹이기 때문에 여기까지 하겠습니다.</p>
+<p>읽어주셔서 감사합니다.</p>
+</div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Sunho Yang
+        2022
+
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
+    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

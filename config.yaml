@@ -1,0 +1,36 @@
+baseURL: 'https://sunhoy.github.io/'
+languageCode: 'en-us'
+theme: "PaperMod"
+title: "기린같은 풀스택"
+
+params:
+  env: "production"
+  profileMode:
+    enabled: true
+    title: '남는건 글밖에 없더라..'
+    subtitle: '"테스트는 짜셨나요?"   by 테무새'
+    imageUrl: "images/profile.png"
+    buttons:
+      - name: Archives
+        url: "/archives"
+  socialIcons:
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/sunho-yang-251936b9/"
+    - name: "Github"
+      url: "https://github.com/SunhoY"
+  outputs:
+    home:
+      - HTML
+      - RSS
+      - JSON
+  ShowToc: true
+  ShowShareButtons: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+
+menu:
+  main:
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 10
